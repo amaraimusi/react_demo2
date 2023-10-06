@@ -1,10 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Person } from './test/Person';
 
 
 const App = () => {
+	
+  const john = new Person('John', 25);
+　const msg = john.greet();
+		
   return (
-	<div>Hello World! 今日の天気はいかがですか？</div>
+	<div>${msg}</div>
   );
 }
 
