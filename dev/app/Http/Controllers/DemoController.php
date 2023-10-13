@@ -19,7 +19,7 @@ class DemoController extends Controller
 		//if(\Auth::id() == null) return redirect('login');
 		$data = ['neko'=>'ニャー'];
 		
-		$data = \DB::select('select * from nekos limit 4');
+		$data = \DB::select('select * from sessions limit 1');
 		
 		return view('demo.index', [
 				'data'=>$data,
