@@ -3,19 +3,21 @@ import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
   Route,
-  Switch
+  Routes
 } from 'react-router-dom';
-import { Person } from './test/Person';
+import Demo from './demo';
 
-
-const App = () => {
-	
-  const john = new Person('John', 25);
-　const msg = john.greet();
-		console.log('xxx3');//■■■□□□■■■□□□
+const App: React.FC = () => {
   return (
-	<div>${msg}</div>
+    <Router>
+      <Routes>
+        <Route path="/demo" element={<Demo />} />
+        {/* 他のルートもこちらに追加可能 */}
+      </Routes>
+    </Router>
   );
-}
+};
+
+export default App;
 
 ReactDOM.render(<App />, document.getElementById('react_app'));
