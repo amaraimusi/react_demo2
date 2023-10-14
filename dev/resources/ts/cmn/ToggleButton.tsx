@@ -1,12 +1,12 @@
-// ToggleElement.tsx
+// ToggleButton.tsx
 import React, { useState } from 'react';
 
-type ToggleElementProps = {
+type ToggleButtonProps = {
   targetId: string;
   label: string;
 };
 
-const ToggleElement: React.FC<ToggleElementProps> = ({ targetId, label }) => {
+const ToggleButton: React.FC<ToggleButtonProps> = ({ targetId, label }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const toggleVisibility = () => {
@@ -24,4 +24,4 @@ const ToggleElement: React.FC<ToggleElementProps> = ({ targetId, label }) => {
   return <button onClick={toggleVisibility} class="btn btn-info">{isVisible ? `${label}(閉じる)` : `${label}`}</button>;
 };
 
-export default ToggleElement;
+export default ToggleButton;
