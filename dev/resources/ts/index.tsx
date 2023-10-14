@@ -5,6 +5,10 @@ import {
   Route,
   Routes
 } from 'react-router-dom';
+
+//import '../js/app';
+//import 'bootstrap/dist/js/bootstrap.min.js';
+//import '../js/bootstrap';
 import Demo from './demo';
 
 const App: React.FC = () => {

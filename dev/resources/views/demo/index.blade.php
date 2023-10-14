@@ -6,12 +6,12 @@
 
         <title>Laravel</title>
         @viteReactRefresh
-        @vite('resources/ts/index.tsx')
+        @vite(['resources/sass/app.scss', 'resources/ts/index.tsx'])
 
 
     </head>
     <body>
     	<div id="react_app"></div><!-- Reactの埋め込み部分 -->
-  
+  		<button class='btn btn-success'>ABC</button>
     </body>
 </html>
