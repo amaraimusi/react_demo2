@@ -29,7 +29,9 @@
   		</div>
   		
   		
-  		<div id="item_list" class="mt-3""></div>
+  		<div id="item_list" class="mt-3"></div>
+  		
+  		<div id="item_list_add" class="mt-3"></div>
   		
     </body>
 </html>
