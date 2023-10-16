@@ -3,12 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Laravel</title>
         @viteReactRefresh
         @vite(['resources/sass/app.scss', 'resources/ts/index.tsx'])
-
-
     </head>
     <body>
     	<div id="react_app"></div><!-- Reactの埋め込み部分 -->
@@ -32,6 +29,10 @@
   		<div id="item_list" class="mt-3"></div>
   		
   		<div id="item_list_add" class="mt-3"></div>
+  		
+  		<input type="hidden" id="data_json" value='{"key": "猫にエサを与えなかったが、イヌがエサを猫に与えた。"}' />
+  		<div id="get_json_test"></div>
+  		
   		
     </body>
 </html>
