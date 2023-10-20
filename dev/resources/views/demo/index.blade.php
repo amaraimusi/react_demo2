@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Laravel</title>
         @viteReactRefresh
         @vite(['resources/sass/app.scss', 'resources/ts/index.tsx'])
@@ -33,6 +34,7 @@
   		<input type="hidden" id="data_json" value='{"key": "猫にエサを与えなかったが、イヌがエサを猫に与えた。"}' />
   		<div id="get_json_test"></div>
   		
+  		<div id="spa_demo" class="mt-3"></div>
   		
     </body>
 </html>
