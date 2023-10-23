@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 
 Route::get('demo', 'App\Http\Controllers\DemoController@index');
+Route::post('demo/spa_demo', 'App\Http\Controllers\DemoController@spa_demo');
 
 Auth::routes();
 
