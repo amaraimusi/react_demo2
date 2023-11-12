@@ -9,7 +9,11 @@
         @vite(['resources/sass/app.scss', 'resources/ts/index.tsx'])
     </head>
     <body>
-    	<div id="react_app"></div><!-- Reactの埋め込み部分 -->
+    	<div id="root"></div><!-- Reactの埋め込み部分 -->
+    	
+    	
+    	
+    	<hr>
   		<button class='btn btn-success'>ABC</button>
   		
   		

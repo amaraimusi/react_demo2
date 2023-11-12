@@ -21,7 +21,7 @@ class RichmenuController extends Controller
 		
 		$data = \DB::select('select * from sessions limit 1');
 		
-		return view('demo.index', [
+		return view('richmenu.index', [
 				'data'=>$data,
 		]);
 		

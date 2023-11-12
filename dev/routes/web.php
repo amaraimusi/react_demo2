@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::get('demo', 'App\Http\Controllers\DemoController@index');
 Route::post('demo/spa_demo', 'App\Http\Controllers\DemoController@spa_demo');
 
-Route::get('demo', 'App\Http\Controllers\RichmenuController@index');
+Route::get('richmenu', 'App\Http\Controllers\RichmenuController@index');
 Route::post('richmenu/spa_demo', 'App\Http\Controllers\RichmenuController@spa_demo');
 
 Auth::routes();

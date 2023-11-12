@@ -1,27 +1,20 @@
+// ./resources/ts/index.tsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-//import '../js/app';
-//import 'bootstrap/dist/js/bootstrap.min.js';
-//import '../js/bootstrap';
-import Demo from './demo';
+import Demo from './demo/index';
+import Richmenu from './richmenu/index';
 
-const App: React.FC = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/demo" element={<Demo />} />
-        {/* 他のルートもこちらに追加可能 */}
-      </Routes>
-    </Router>
-  );
-};
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/demo" element={<Demo />} />
+                <Route path="/richmenu" element={<Richmenu />} />
+            </Routes>
+        </Router>
+    );
+}
 
-export default App;
-
-ReactDOM.render(<App />, document.getElementById('react_app'));
+ReactDOM.render(<App />, document.getElementById('root'));
