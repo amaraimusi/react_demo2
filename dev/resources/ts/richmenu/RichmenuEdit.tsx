@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from '../cmn/Spa';
+import { Button } from 'antd';
 
-const SpaDemo: React.FC = () => {
+const RichmenuEdit = () => {
+    const [message, setMessage] = useState('');
 	const [data, setData] = useState<any>(null);
 	const [errorHtml, setErrorHtml] = useState<string | null>(null);
 
-	useEffect(() => {
+    const handleClick = () => {
+	
 		const fetchData = async () => {
 			try {
 
@@ -23,17 +26,17 @@ const SpaDemo: React.FC = () => {
 		};
 
 		fetchData();
-	}, []);
+        setMessage('Hello World!');
+    };
 
-	if (!data) return <p>Loading...</p>;
-
-	return (
-		<div>
-			<h1>SPA Demo</h1>
+    return (
+        <div>
+            <Button type="primary" onClick={handleClick}>Click Me</Button>
+            <p>{message}</p>
 		{errorHtml && <div dangerouslySetInnerHTML={{ __html: errorHtml }} />}
 			<pre>{JSON.stringify(data, null, 2)}</pre>
-		</div>
-	);
-}
+        </div>
+    );
+};
 
-export default SpaDemo;
+export default RichmenuEdit;

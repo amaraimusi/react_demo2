@@ -1,6 +1,6 @@
 import React from 'react';
 import Neko from './Neko';
-import SpaDemo from './SpaDemo';
+import RichmenuEdit from './RichmenuEdit';
 
 
 const Richmenu = () => {
@@ -8,7 +8,7 @@ const Richmenu = () => {
         <div>
             <h1>Richmenu Page</h1>
            <Neko />
-           <SpaDemo />
+           <RichmenuEdit />
         </div>
     );
 }
