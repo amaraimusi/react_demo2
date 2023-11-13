@@ -76,11 +76,11 @@ const List = () => {
 
   return (
     <div>
-      <Form onFinish={handleSearch}>
-        <Form.Item name="name">
+      <Form onFinish={handleSearch} layout="inline">
+        <Form.Item name="name" style={{ width: '20%' }}>
           <Input placeholder="リッチメニュー名" />
         </Form.Item>
-        <Form.Item name="segment">
+        <Form.Item name="segment" style={{ width: '20%' }}>
           <Input placeholder="セグメント" />
         </Form.Item>
         <Form.Item>
