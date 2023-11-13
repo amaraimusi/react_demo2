@@ -109,9 +109,16 @@ class RichmenuController extends Controller
 	 */
 	public function get_list_spa(Request $request)
 	{
-
-		$query = RichMenu::query();
-
+		
+		info($request);//■■■□□□■■■□□□)
+		// リクエストからページサイズと現在のページ番号を取得
+		$pageSize = $request->input('pagination.pageSize', 5);
+		$currentPage = $request->input('pagination.current', 1);
+		
+		info('$currentPage＝' . $currentPage);//■■■□□□■■■□□□)
+		
+		$query = Richmenu::query();
+		
 		// 検索条件の適用
 		if ($request->filled('name')) {
 			$query->where('name', 'like', '%' . $request->input('name') . '%');
@@ -126,13 +133,52 @@ class RichmenuController extends Controller
 		$sortOrder = $request->input('sortOrder', 'asc') === 'ascend' ? 'asc' : 'desc';
 		$query->orderBy($sortField, $sortOrder);
 		
-		// ページネーションの設定
-		$pageSize = $request->input('pagination.pageSize', 5);
+		// ページネーションの適用
+		// `paginate` メソッドは現在のページ番号を自動的に考慮します
+		$data = $query->paginate($pageSize, ['*'], 'page', $currentPage);
 		
-		// データの取得とページネーション
-		$richMenus = $query->paginate($pageSize);
+		return response()->json($data);
+		
+		//■■■□□□■■■□□□
+// // 		[2023-11-13 12:23:43] local.INFO: array (
+// // 				'sortField' => 'name',
+// // 				'sortOrder' => 'descend',
+// // 				'pagination' =>
+// // 				array (
+// // 						'current' => 1,
+// // 						'pageSize' => 5,
+// // 						'total' => 12,
+// // 				),
+// // 		)
+		
+		
 
-		return response()->json($richMenus);
+// 		$pageSize = $request->pagination['pageSize'];
+// 		info($pageSize);
+
+// 		$query = Richmenu::query();
+
+// 		// 検索条件の適用
+// 		if ($request->filled('name')) {
+// 			$query->where('name', 'like', '%' . $request->input('name') . '%');
+// 		}
+		
+// 		if ($request->filled('segment')) {
+// 			$query->where('segment', 'like', '%' . $request->input('segment') . '%');
+// 		}
+		
+// 		// ソートの適用
+// 		$sortField = $request->input('sortField', 'created_at');
+// 		$sortOrder = $request->input('sortOrder', 'asc') === 'ascend' ? 'asc' : 'desc';
+// 		$query->orderBy($sortField, $sortOrder);
+		
+// 		// ページネーションの設定
+// 		$pageSize = $request->input('pagination.pageSize', $pageSize);
+		
+// 		// データの取得とページネーション
+// 		$data = $query->paginate($pageSize);
+
+// 		return response()->json($data);
 	}
 	
 }

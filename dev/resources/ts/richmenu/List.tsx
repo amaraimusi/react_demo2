@@ -12,9 +12,10 @@ type Richmenu = {
   // その他のフィールド
 };
 
-const AdminPage = () => {
+const List = () => {
   const [data, setData] = useState<Richmenu[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [pagination, setPagination] = useState({ current: 1, pageSize: 5, total: 0 });
 
   // データの初期読み込み
   useEffect(() => {
@@ -25,9 +26,13 @@ const AdminPage = () => {
   const fetchData = async (params = {}) => {
     setLoading(true);
     try {
-      const response = await axios.post('richmenu/get_list_spa',  params );
+      const response = await axios.post('richmenu/get_list_spa', {
+        ...params,
+        pagination,
+      });
 
       setData(response.data.data);
+      setPagination({ ...pagination, total: response.data.total });
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -41,13 +46,13 @@ const AdminPage = () => {
   };
 
   // テーブル変更処理（ページネーション、ソート）
-  const handleTableChange = (pagination, filters, sorter) => {
+  const handleTableChange = (newPagination, filters, sorter) => {
     fetchData({
       sortField: sorter.field,
       sortOrder: sorter.order,
-      pagination,
       ...filters,
     });
+    setPagination(newPagination);
   };
 
   // 表示列の定義
@@ -87,7 +92,7 @@ const AdminPage = () => {
       <Table 
         columns={columns}
         dataSource={data}
-        pagination={{ pageSize: 5 }}
+        pagination={pagination}
         loading={loading}
         onChange={handleTableChange}
       />
@@ -95,4 +100,4 @@ const AdminPage = () => {
   );
 };
 
-export default AdminPage;
+export default List;
