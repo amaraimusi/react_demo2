@@ -1,6 +1,7 @@
 import React from 'react';
 import Neko from './Neko';
 import RichmenuEdit from './RichmenuEdit';
+import List from './List';
 
 
 const Richmenu = () => {
@@ -9,6 +10,7 @@ const Richmenu = () => {
             <h1>Richmenu Page</h1>
            <Neko />
            <RichmenuEdit />
+			<List />
         </div>
     );
 }

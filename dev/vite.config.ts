@@ -18,5 +18,9 @@ export default defineConfig({
     },
     build: {
         sourcemap: true, // ソースマップを有効にする
-    }
+    },
+    optimizeDeps: {
+        include: ['react', 'react-dom', 'antd', 'react-router-dom'], // 明示的にプリビルドする依存関係
+        exclude: ['@popperjs/core', 'bootstrap'], // プリビルドから除外する依存関係
+    },
 });
