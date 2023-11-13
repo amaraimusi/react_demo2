@@ -19,20 +19,17 @@ const List = () => {
 
   // データの初期読み込み
   useEffect(() => {
-    fetchData();
+    fetchData({ pagination });
   }, []);
 
   // データ取得関数
   const fetchData = async (params = {}) => {
     setLoading(true);
     try {
-      const response = await axios.post('richmenu/get_list_spa', {
-        ...params,
-        pagination,
-      });
+      const response = await axios.post('richmenu/get_list_spa', params);
 
       setData(response.data.data);
-      setPagination({ ...pagination, total: response.data.total });
+      setPagination({ ...params.pagination, total: response.data.total });
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -42,7 +39,10 @@ const List = () => {
 
   // 検索処理
   const handleSearch = (values) => {
-    fetchData(values);
+    fetchData({
+      ...values,
+      pagination: { ...pagination, current: 1 },
+    });
   };
 
   // テーブル変更処理（ページネーション、ソート）
@@ -50,9 +50,9 @@ const List = () => {
     fetchData({
       sortField: sorter.field,
       sortOrder: sorter.order,
+      pagination: newPagination,
       ...filters,
     });
-    setPagination(newPagination);
   };
 
   // 表示列の定義
