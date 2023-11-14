@@ -92,7 +92,10 @@ const List = () => {
       <Table 
         columns={columns}
         dataSource={data}
-        pagination={pagination}
+        pagination={{
+          ...pagination,
+          position: ['bottomCenter']
+        }}
         loading={loading}
         onChange={handleTableChange}
       />

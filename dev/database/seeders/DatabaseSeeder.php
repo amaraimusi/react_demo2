@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-    	$this->call(RichmenusTableSeeder::class);
+    	$this->call(RichMenusTableSeeder::class);
     	$this->call(RichmenuAreasTableSeeder::class);
     	
     }
