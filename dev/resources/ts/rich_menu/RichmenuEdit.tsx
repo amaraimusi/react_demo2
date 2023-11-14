@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from '../cmn/Spa';
 import { Button } from 'antd';
 
-const RichmenuEdit = () => {
+const RichMenuEdit = () => {
     const [message, setMessage] = useState('');
 	const [data, setData] = useState<any>(null);
 	const [errorHtml, setErrorHtml] = useState<string | null>(null);
@@ -13,7 +13,7 @@ const RichmenuEdit = () => {
 			try {
 
 				let postData = {'buta':'豚の高級住宅'};
-				const response = await axios.post('richmenu/spa_demo',postData);
+				const response = await axios.post('rich_menu/spa_demo',postData);
 
 				if(typeof response.data === 'string'){
 					setErrorHtml(response.request.responseText);
@@ -39,4 +39,4 @@ const RichmenuEdit = () => {
     );
 };
 
-export default RichmenuEdit;
+export default RichMenuEdit;

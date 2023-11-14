@@ -1,18 +1,18 @@
 import React from 'react';
 import Neko from './Neko';
-import RichmenuEdit from './RichmenuEdit';
+import RichMenuEdit from './RichMenuEdit';
 import List from './List';
 
 
-const Richmenu = () => {
+const RichMenu = () => {
     return (
         <div>
-            <h1>Richmenu Page</h1>
+            <h1>RichMenu Page</h1>
            <Neko />
-           <RichmenuEdit />
+           <RichMenuEdit />
 			<List />
         </div>
     );
 }
 
-export default Richmenu;
+export default RichMenu;

@@ -4,14 +4,14 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Demo from './demo/index';
-import Richmenu from './richmenu/index';
+import RichMenu from './rich_menu/index';
 
 const App = () => {
     return (
         <Router>
             <Routes>
                 <Route path="/demo" element={<Demo />} />
-                <Route path="/richmenu" element={<Richmenu />} />
+                <Route path="/rich_menu" element={<RichMenu />} />
             </Routes>
         </Router>
     );

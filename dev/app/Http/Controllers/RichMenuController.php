@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Richmenu;
+use App\Models\RichMenu;
 
-class RichmenuController extends Controller
+class RichMenuController extends Controller
 {
 	/**
 	 * indexページのアクション
@@ -22,7 +22,7 @@ class RichmenuController extends Controller
 		
 		$data = \DB::select('select * from sessions limit 1');
 		
-		return view('richmenu.index', [
+		return view('rich_menu.index', [
 				'data'=>$data,
 		]);
 		
@@ -78,25 +78,6 @@ class RichmenuController extends Controller
 		curl_close($ch);
 		
 		
-		
-		
-		
-		
-		
-		
-// 		// すでにログアウトになったらlogoutであることをフロントエンド側に知らせる。
-// 		if(\Auth::id() == null) return json_encode(['err_msg'=>'logout']);
-		
-
-// 		$buta = $request->buta;
-
-// 		$res = [];
-		
-// 		$res['buta'] = $buta;
-// 		$res['name'] = 'リッチメニュー送信完了';
-// 		$res['age'] = 1;
-// 		$res['date'] = '2020-7-23';
-		
 		$json = json_encode($result, JSON_HEX_TAG | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_HEX_APOS);
 		
 		return $json;
@@ -110,14 +91,11 @@ class RichmenuController extends Controller
 	public function get_list_spa(Request $request)
 	{
 		
-		info($request);//■■■□□□■■■□□□)
 		// リクエストからページサイズと現在のページ番号を取得
 		$pageSize = $request->input('pagination.pageSize', 5);
 		$currentPage = $request->input('pagination.current', 1);
-		
-		info('$currentPage＝' . $currentPage);//■■■□□□■■■□□□)
-		
-		$query = Richmenu::query();
+
+		$query = RichMenu::query();
 		
 		// 検索条件の適用
 		if ($request->filled('name')) {
@@ -139,46 +117,6 @@ class RichmenuController extends Controller
 		
 		return response()->json($data);
 		
-		//■■■□□□■■■□□□
-// // 		[2023-11-13 12:23:43] local.INFO: array (
-// // 				'sortField' => 'name',
-// // 				'sortOrder' => 'descend',
-// // 				'pagination' =>
-// // 				array (
-// // 						'current' => 1,
-// // 						'pageSize' => 5,
-// // 						'total' => 12,
-// // 				),
-// // 		)
-		
-		
-
-// 		$pageSize = $request->pagination['pageSize'];
-// 		info($pageSize);
-
-// 		$query = Richmenu::query();
-
-// 		// 検索条件の適用
-// 		if ($request->filled('name')) {
-// 			$query->where('name', 'like', '%' . $request->input('name') . '%');
-// 		}
-		
-// 		if ($request->filled('segment')) {
-// 			$query->where('segment', 'like', '%' . $request->input('segment') . '%');
-// 		}
-		
-// 		// ソートの適用
-// 		$sortField = $request->input('sortField', 'created_at');
-// 		$sortOrder = $request->input('sortOrder', 'asc') === 'ascend' ? 'asc' : 'desc';
-// 		$query->orderBy($sortField, $sortOrder);
-		
-// 		// ページネーションの設定
-// 		$pageSize = $request->input('pagination.pageSize', $pageSize);
-		
-// 		// データの取得とページネーション
-// 		$data = $query->paginate($pageSize);
-
-// 		return response()->json($data);
 	}
 	
 }

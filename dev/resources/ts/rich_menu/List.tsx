@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, Input, Button, Table } from 'antd';
 import axios from '../cmn/Spa';
 
-type Richmenu = {
+type RichMenu = {
   id: string;
   name: string;
   segment: string;
@@ -13,7 +13,7 @@ type Richmenu = {
 };
 
 const List = () => {
-  const [data, setData] = useState<Richmenu[]>([]);
+  const [data, setData] = useState<RichMenu[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [pagination, setPagination] = useState({ current: 1, pageSize: 5, total: 0 });
 
@@ -26,7 +26,7 @@ const List = () => {
   const fetchData = async (params = {}) => {
     setLoading(true);
     try {
-      const response = await axios.post('richmenu/get_list_spa', params);
+      const response = await axios.post('rich_menu/get_list_spa', params);
 
       setData(response.data.data);
       setPagination({ ...params.pagination, total: response.data.total });
