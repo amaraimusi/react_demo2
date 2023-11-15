@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
 
     	$this->call(RichMenusTableSeeder::class);
     	$this->call(RichmenuAreasTableSeeder::class);
+    	$this->call(RichMenuCategoriesTableSeeder::class);
     	
     }
 }
