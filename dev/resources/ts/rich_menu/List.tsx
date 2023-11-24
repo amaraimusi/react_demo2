@@ -76,6 +76,7 @@ const List = () => {
 
   return (
     <div>
+      <div>TEST10</div>
       <Form onFinish={handleSearch} layout="inline">
         <Form.Item name="name" style={{ width: '20%' }}>
           <Input placeholder="リッチメニュー名" />
@@ -92,6 +93,7 @@ const List = () => {
       <Table 
         columns={columns}
         dataSource={data}
+        rowKey="id"
         pagination={{
           ...pagination,
           position: ['bottomCenter']

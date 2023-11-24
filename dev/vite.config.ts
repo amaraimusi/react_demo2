@@ -12,12 +12,17 @@ export default defineConfig({
         react(), 
     ],
     server: {
+       open: false, 
         hmr: {
             host: 'localhost', 
         },
+	    watch: {
+	      ignored: ['!**resources/ts**'] // 必要に応じて調整
+	    }
     },
     build: {
         sourcemap: true, // ソースマップを有効にする
+        chunkSizeWarningLimit: 10000 // 10MB に設定
     },
     optimizeDeps: {
         include: ['react', 'react-dom', 'antd', 'react-router-dom'], // 明示的にプリビルドする依存関係

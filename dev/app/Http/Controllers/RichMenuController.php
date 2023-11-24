@@ -114,6 +114,7 @@ class RichMenuController extends Controller
 		// ページネーションの適用
 		// `paginate` メソッドは現在のページ番号を自動的に考慮します
 		$data = $query->paginate($pageSize, ['*'], 'page', $currentPage);
+		info($data);//■■■□□□■■■□□□)
 		
 		return response()->json($data);
 		

@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 class RichMenu extends Model
 {
 
+	protected $primaryKey = 'id'; // これが適切に設定されていることを確認
+	public $incrementing = false; // これを追加
+	protected $keyType = 'string'; // これを追加
+	
     // テーブル名を設定（省略可）
     protected $table = 'rich_menus';
 
